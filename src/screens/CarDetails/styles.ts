@@ -46,9 +46,9 @@ export const Brand = styled.Text`
 `;
 
 export const Name = styled.Text`
-font-family: ${({theme}) => theme.fonts.secondary_500};
-color: ${({theme}) => theme.colors.title};
-font-size:  ${RFValue(25)}px;
+  font-family: ${({theme}) => theme.fonts.secondary_500};
+  color: ${({theme}) => theme.colors.title};
+  font-size:  ${RFValue(25)}px;
 `;
 
 export const Rent = styled.View`
@@ -86,7 +86,6 @@ export const Acessories = styled.View`
 
   margin-top: 16px;
 `;
-
 
 export const Footer = styled.View`
   width: 100%;
