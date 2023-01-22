@@ -4,7 +4,7 @@ import { Archivo_400Regular, Archivo_500Medium, Archivo_600SemiBold} from "@expo
 import { ThemeProvider } from "styled-components"
 import theme from '~/styles/theme';
 
-import { Scheduling } from '~/screens/Scheduling';
+import { Routes } from '~/routes';
 
 
 export default function App() {
@@ -22,7 +22,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-     <Scheduling />
+      <Routes />
     </ThemeProvider>
   );
 }
