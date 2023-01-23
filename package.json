@@ -6,13 +6,15 @@
     "start": "expo start --dev-client",
     "android": "expo run:android",
     "ios": "expo run:ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "server": "npx json-server ./src/services/server.json --host 127.0.0.1 --port 3333 --watch --delay 700"
   },
   "dependencies": {
     "@expo-google-fonts/archivo": "^0.2.2",
     "@expo-google-fonts/inter": "^0.2.2",
     "@react-navigation/native": "^6.1.2",
     "@react-navigation/native-stack": "^6.9.8",
+    "axios": "^1.2.3",
     "expo": "~47.0.12",
     "expo-font": "~11.0.1",
     "expo-splash-screen": "~0.17.5",
