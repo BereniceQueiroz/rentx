@@ -22,6 +22,7 @@ export function SchedulingComplete(){
   function handleConfirm() {
     navigation.navigate('Home')
   }
+  
 
   return (
     <Container>

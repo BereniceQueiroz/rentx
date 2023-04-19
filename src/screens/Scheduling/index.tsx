@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { useTheme } from 'styled-components';
 import { StatusBar } from 'react-native';
 import { BackButton } from '~/components/BackButton';
 import { Button } from '~/components/Button';
-import { Calendar } from '~/components/Calendar';
+import {
+  Calendar,
+  MarkedDateProps,
+  DayProps,
+  generateInterval } from '~/components/Calendar';
 import ArrowSvg from '~/assets/arrow.svg';
 
 import {
@@ -19,44 +23,86 @@ import {
   Content,
   Footer,
 } from './styles';
+import { getPlatformDate } from '~/utils/getPlataformDate';
+import { format } from 'date-fns';
 
+interface RentalPeriod {
+  start: number;
+  startFormatted: string;
+  end: number;
+  endFormatted: string;
 
+}
 
 export function Scheduling(){
   const theme = useTheme();
   const navigation = useNavigation();
+  const [lastSelectedDate, setLastSelectedDate ] = useState<DayProps>({} as DayProps);
+  const [markedDates, setMarkedDates ] = useState<MarkedDateProps>({} as MarkedDateProps);
+  const [rentalPeriod, setRentalPeriod] = useState<RentalPeriod>( {} as RentalPeriod);
 
   function handleConfirmRental() {
     navigation.navigate('SchedulingDetails');
   }
 
+  function handleGoBack() {
+    navigation.goBack();
+  }
+
+  function handleChangeDate(date: DayProps ) {
+    let start = !lastSelectedDate.timestamp ? date : lastSelectedDate;
+    let end = date;
+
+    if(start.timestamp > end.timestamp) {
+      start = end;
+      end = start;
+    }
+
+    setLastSelectedDate(end);
+    const interval = generateInterval(start, end);
+    setMarkedDates(interval);
+
+    const firstDate = Object.keys(interval)[0];
+    const endDate = Object.keys(interval)[Object.keys(interval).length - 1];
+
+    setRentalPeriod({
+      start: start.timestamp,
+      end: end.timestamp,
+      startFormatted: format(getPlatformDate(new Date(firstDate)), 'dd/MM/yyyy'),
+      endFormatted: format(getPlatformDate(new Date(endDate)), 'dd/MM/yyyy')
+    })
+
+  }
 
   return (
     <Container>
       <Header>
       <StatusBar barStyle="light-content" translucent backgroundColor="transparent" />
-        <BackButton color={theme.colors.shape} onPress={() => {}} />
+        <BackButton color={theme.colors.shape} onPress={handleGoBack} />
         <Title>Escolha uma {'\n'}data de início e {'\n'}fim do aluguel</Title>
 
         <RentalPeriod>
           <DateInfo>
             <DateTitle>De</DateTitle>
             {/* no ios borderbottom nao funciona em text, criar view */}
-            <ContentDateValue selected={false}>
-              <DateValue></DateValue>
+            <ContentDateValue selected={!!rentalPeriod.startFormatted}>
+              <DateValue>{rentalPeriod.startFormatted}</DateValue>
             </ContentDateValue>
           </DateInfo>
           <ArrowSvg />
           <DateInfo>
             <DateTitle>Até</DateTitle>
-            <ContentDateValue selected={false}>
-              <DateValue></DateValue>
+            <ContentDateValue selected={!!rentalPeriod.endFormatted}>
+              <DateValue>{rentalPeriod.endFormatted}</DateValue>
             </ContentDateValue>
           </DateInfo>
         </RentalPeriod>
       </Header>
       <Content>
-        <Calendar />
+        <Calendar
+          markedDates={markedDates}
+          onDayPress={handleChangeDate}
+        />
       </Content>
 
       <Footer>
