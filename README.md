@@ -3,20 +3,13 @@
 Ele fornece uma descrição dos veículos juntamente com um caléndario para o agendamento da locação.
 
 <h1 align="center">
-  🚗 RentX 🚗
+  🚗 RentX
 </h1>
-
-<p align="center">
- <a href="#-sobre-o-projeto">Sobre</a> •
- <a href="#-layout">Layout</a> •
- <a href="#-funcionalidade">Funcionalidades</a> •
- <a href="#-tecnologias">Tecnologias</a>
-</p>
 
 ---
 ## ⚙  Sobre
 
-Projeto de uma locadora de carros digital e fictícia, consumindo API local possuindo todas as funcionalidade necessária para a locação do veículo, como tela de detalhes do veículo, tela de agendamento de locação, animações e etc.
+Projeto de uma locadora de carros digital e fictícia, consumindo API local possuindo todas as funcionalidade necessária para a locação do veículo, como splash screen, tela de detalhes do veículo, tela de agendamento de locação, animações e etc.
 
 ---
 
