@@ -7,12 +7,14 @@ import { Scheduling } from '~/screens/Scheduling';
 import { SchedulingDetails } from '~/screens/SchedulingDetails';
 import { SchedulingComplete } from '~/screens/SchedulingComplete';
 import { MyCars } from '~/screens/MyCars';
+import { Splash } from '~/screens/Splash';
 import { CarDTO } from '~/dtos/CarDTO';
 
 declare global {
   namespace ReactNavigation {
     interface RootParamList {
-      Home: string;
+      Splash: string;
+      Home: undefined;
       SignUpFirstStep: string;
       CarDetails: { car: CarDTO };
       Scheduling: { car: CarDTO };
@@ -25,7 +27,7 @@ declare global {
         message: string;
         nextScreenRoute: string;
       };
-      MyCars: unde;
+      MyCars: undefined;
     }
   }
 }
@@ -34,7 +36,8 @@ const { Navigator, Screen } = createNativeStackNavigator();
 
 export function StackRoutes() {
   return (
-    <Navigator screenOptions={{ headerShown: false }}>
+    <Navigator screenOptions={{ headerShown: false }} initialRouteName='Splash'>
+      <Screen name="Splash" component={Splash} />
       <Screen name="Home" component={Home} />
       <Screen name="CarDetails" component={CarDetails} />
       <Screen name="Scheduling" component={Scheduling} />
