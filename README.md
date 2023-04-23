@@ -1,5 +1,5 @@
-# RentX-Rocketseat
-## A RentX é um aplicativopara locação de automóveis de luxo.
+# RentX
+## Aplicativo para locação de automóveis de luxo.
 Ele fornece uma descrição dos veículos juntamente com um caléndario para o agendamento da locação.
 
 <h1 align="center">
