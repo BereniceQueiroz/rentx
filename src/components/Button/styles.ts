@@ -8,6 +8,7 @@ interface ButtonProps extends RectButtonProps {
 
 export const Container = styled(RectButton)<ButtonProps>`
   width: 100%;
+  height: 64px;
   padding: 19px;
   align-items: center;
   justify-content: center;
