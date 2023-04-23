@@ -14,27 +14,27 @@ Ele fornece uma descrição dos veículos juntamente com um caléndario para o a
 </p>
 
 ---
-## ⚙Sobre
+## ⚙  Sobre
 
 Projeto de uma locadora de carros digital e fictícia, consumindo API local possuindo todas as funcionalidade necessária para a locação do veículo, como tela de detalhes do veículo, tela de agendamento de locação, animações e etc.
 
 ---
 
 
-## 📱Aplicação
+## 📱  Aplicação
 
 <img title="RentX" src="" />
 
 ---
 
-## 🎨Layout
+## 🎨  Layout
 
 O layout foi fornecido pala Rocketseat
 - [Figma](https://www.figma.com/file/gP4HQZjSwU9fkomMimCn2Z/RentX-Ignite)
 
   ---
 
-### 🛠Tecnologias Utilizadas
+### 🛠  Tecnologias Utilizadas
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
